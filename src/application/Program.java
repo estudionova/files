@@ -7,6 +7,33 @@ import java.io.IOException;
 public class Program {
     public static void main(String[] args) {
 
+
+        String path = "c:\\temp\\in.txt";
+
+        try (BufferedReader br = new BufferedReader(new FileReader(path))) {
+            String line = br.readLine();
+
+            while (line != null) {
+                System.out.println(line);
+                line = br.readLine();
+            }
+        } catch (IOException e) {
+            System.out.println("Error: " + e.getMessage());
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+        /*
         String path = "c:\\temp\\in.txt";
         FileReader fr = null;
         BufferedReader br = null;
@@ -39,17 +66,7 @@ public class Program {
 
 
 
-
-
-
-
-
-
-
-
-
-
-       /* File file = new File("C:\\temp\\in.txt");
+        File file = new File("C:\\temp\\in.txt");
         Scanner sc = null;
 
         try {
