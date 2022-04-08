@@ -1,12 +1,35 @@
 package application;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.File;
+import java.util.Scanner;
 
 public class Program {
     public static void main(String[] args) {
 
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter a folder path");
+        String strPath = sc.nextLine();
+
+        File path = new File(strPath);
+
+        File[] foldes = path.listFiles(File::isDirectory);
+        System.out.println("FOLDERS: ");
+
+        for (File folder : foldes){
+            System.out.println(folder);
+        }
+
+        File[] files = path.listFiles(File::isFile);
+        for (File file : files){
+            System.out.println(file);
+        }
+
+        boolean sucess = new File(strPath + "\\subdir").mkdir() ;
+        System.out.println("Directory crated sucessfully " + sucess);
+
+        sc.close();
+/*
         String[] lines = new String[]{"Good morning", "Good afternoon", "Good night"};
         String path = "c:\\temp\\out.txt";
 
@@ -19,17 +42,6 @@ public class Program {
         }
 
 
-
-
-
-
-
-
-
-
-
-
-   /*
         String path = "c:\\temp\\in.txt";
 
         try (BufferedReader br = new BufferedReader(new FileReader(path))) {
